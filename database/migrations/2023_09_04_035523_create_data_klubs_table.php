@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('data_klubs', function (Blueprint $table) {
+            $table->string('id_klub','150')->primary();
+            $table->string('nama_klub','150')->unique();
+            $table->string('kota_klub','150');
+            $table->timestamps();
+
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('data_klubs');
     }
 };

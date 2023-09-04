@@ -22,10 +22,13 @@ use App\Http\Controllers\klasemenController;
 
 // Route untuk menampilkan halaman input klub
 Route::get('/', [inputKlubController::class, 'index'])->name('inputKlub');
+// sIMPAN DATA KLUB
+Route::post('/', [inputKlubController::class, 'input'])->name('simpanKlub');
 
 
 // Route untuk menampilkan halaman input skor
 Route::get('/input-skor', [inputSkorController::class, 'index'])->name('inputSkor');
+Route::post('/input-skor', [inputSkorController::class, 'input'])->name('simpanSkor');
 
 
 // Route untuk menampilkan halaman input skor

@@ -8,7 +8,9 @@
                 <h4>Data Pertandingan</h4>
             </div>
             <div class="card-body text-center">
-                <span>Persib</span> 2 - 0 <span>Persija</span>
+                @foreach ($pertandingan as $item)
+                    <span>{{ strtoupper($item['klub_satu']) }}</span> {{ $item['skor_klub_satu'] }} - {{ $item['skor_klub_dua'] }} <span>{{ strtoupper($item['klub_dua']) }}</span> <br>
+                @endforeach
             </div>
         </div>
     </div>
@@ -32,32 +34,25 @@
                                 <th class="min-w-25px">K</th>
                                 <th class="min-w-25px">GM</th>
                                 <th class="min-w-25px">GK</th>
+                                <th class="min-w-25px">GS</th>
                                 <th class="min-w-34px">Point</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>1.</th>
-                                <td>Persib</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2</td>
-                                <td>0</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <th>2.</th>
-                                <td>Persija</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>2</td>
-                                <td>0</td>
-                            </tr>
+                            @foreach ($dataKlasemen as $item)
+                                <tr>
+                                    <th>{{ $no++ }}.</th>
+                                    <td>{{ $item['klub'] }}</td>
+                                    <td class="text-end">{{ $item['jumlah_main'] }}</td>
+                                    <td class="text-end">{{ $item['jumlah_menang'] }}</td>
+                                    <td class="text-end">{{ $item['jumlah_seri'] }}</td>
+                                    <td class="text-end">{{ $item['jumlah_kalah'] }}</td>
+                                    <td class="text-end">{{ $item['jumlah_gol'] }}</td>
+                                    <td class="text-end">{{ $item['jumlah_kebobolan'] }}</td>
+                                    <td class="text-end">{{ $item['jumlah_total_gol'] }}</td>
+                                    <td class="text-end">{{ $item['jumlah_poin'] }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
