@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\inputKlubController;
+use App\Http\Controllers\inputSkorController;
+use App\Http\Controllers\klasemenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,15 @@ use App\Http\Controllers\inputKlubController;
 //     return view('welcome');
 // });
 
+// Route untuk menampilkan halaman input klub
 Route::get('/', [inputKlubController::class, 'index'])->name('inputKlub');
+
+
+// Route untuk menampilkan halaman input skor
+Route::get('/input-skor', [inputSkorController::class, 'index'])->name('inputSkor');
+
+
+// Route untuk menampilkan halaman input skor
+Route::get('/klasemen', [klasemenController::class, 'index'])->name('klasemen');
 
 
